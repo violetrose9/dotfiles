@@ -1,0 +1,7 @@
+command = /usr/bin/zsh
+theme = Rose Pine
+background = 000000
+font-size = 17
+title = "ghostty"
+keybind = f11=toggle_fullscreen
+keybind = ctrl+f11=toggle_window_decorations
