@@ -114,3 +114,8 @@ vim.keymap.set("n", "[q", function()
     vim.cmd("cprev")
     vim.cmd("normal! zz")
 end)
+
+-- custom telescope multigrep
+vim.keymap.set("n", "<space>fw", function()
+  require("custom.telescope_multigrep")({})
+end, { desc = "Grep with file-type shortcuts" })
