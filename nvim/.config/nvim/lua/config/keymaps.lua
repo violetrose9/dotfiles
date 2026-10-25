@@ -44,7 +44,7 @@ vim.keymap.set("n", "<space>x", ":.lua<CR>")
 vim.keymap.set("v", "<space>x", ":lua<CR>")
 
 -- split window horizntally
-vim.keymap.set('n', '<C-w>b', '<C-w>s', { desc = 'Horizontal split' })
+vim.keymap.set('n', '<C-w>h', '<C-w>s', { desc = 'Horizontal split' })
 
 -- Visual mode: scroll up/down while keeping the selection
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
