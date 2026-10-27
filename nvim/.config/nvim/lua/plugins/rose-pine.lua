@@ -10,8 +10,10 @@ return {
 
         -- Change the cursor color
         vim.api.nvim_set_hl(0, "Cursor", {
-            fg = "#191724",
-            bg = "#ebbcba",
+            -- fg = "#191724",
+            -- bg = "#ebbcba",
+            fg = "#ffffff",
+            bg = "#ffffff",
         })
     end
 }

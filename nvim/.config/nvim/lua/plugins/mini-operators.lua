@@ -3,6 +3,7 @@ return {
     {
         "nvim-mini/mini.operators",
         version = '*',
+        enabled = false,
         opts = {
             -- your configuration
         },

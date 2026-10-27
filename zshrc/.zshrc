@@ -73,7 +73,8 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sudo command-not-found)
+# plugins=(git sudo command-not-found)
+plugins=(git sudo)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -140,6 +141,7 @@ export VISUAL=nvim
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999
 
+## custom functions
 # make fzf open the file in nvim
 fop() {
   local file
@@ -160,7 +162,23 @@ dir() {
   dir=$(fd --hidden --type d --exclude .git | fzf) && cd "$dir"
 }
 
-# evals
+## evals
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(zoxide init zsh)"
+
+## prompt
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}%1{✗%} "
+
+## options
+setopt CORRECT
+
+## command not found
+if [[ -r /etc/zsh_command_not_found ]]; then
+  source /etc/zsh_command_not_found
+fi
+
+# HOMEBREW_COMMAND_NOT_FOUND_HANDLER="$(brew --repository)/Library/Homebrew/command-not-found/handler.sh"
+# if [ -f "$HOMEBREW_COMMAND_NOT_FOUND_HANDLER" ]; then
+#   source "$HOMEBREW_COMMAND_NOT_FOUND_HANDLER";
+# fi
 

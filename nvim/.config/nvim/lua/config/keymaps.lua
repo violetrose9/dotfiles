@@ -13,6 +13,19 @@ if vim.fn.maparg("gss", "n") ~= "" then
     vim.keymap.del("n", "gss")
 end
 
+-- j,k to gj,gk
+vim.keymap.set("n", "j", "gj")
+vim.keymap.set("n", "k", "gk")
+
+-- keep the cursor in the same place when joining lines
+vim.keymap.set("n", "J", "mzJ`z")
+vim.keymap.set("n", "gJ", "mzgJ`z")
+
+vim.keymap.set("n", "<C-n>", function()
+  local ns = vim.api.nvim_create_namespace("nvim.multicursor")
+  vim.api.nvim_buf_clear_namespace(0, ns, 0, -1)
+end, { desc = "Clear multicursors" })
+
 -- incremental search
 vim.opt.incsearch = true
 -- highlight search
@@ -29,14 +42,6 @@ vim.keymap.set("n", "`", function()
     local char = vim.fn.getcharstr()
     return "`" .. char .. "zz"
 end, { expr = true, desc = "Jump to exact mark and center" })
-
--- j,k to gj,gk
-vim.keymap.set("n", "j", "gj")
-vim.keymap.set("n", "k", "gk")
-
--- keep the cursor in the same place when joining lines
-vim.keymap.set("n", "J", "mzJ`z")
-vim.keymap.set("n", "gJ", "mzgJ`z")
 
 -- excuting lua files
 vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>")
@@ -77,7 +82,9 @@ vim.keymap.set("n", "<space>Y", [["+Y]])
 
 -- visual block mode
 vim.keymap.set('n', '<space>v', '<C-v>', { noremap = true, silent = true })
+
 vim.keymap.set('n', '<C-v>', 'v$', { desc = 'Select to end of line' })
+vim.keymap.set('n', '<C-y>', 'y$', { desc = 'Yank to end of line' })
 
 -- replace the current word in the entire file
 vim.keymap.set("n", "<space>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])

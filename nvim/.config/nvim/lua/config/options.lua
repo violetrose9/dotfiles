@@ -31,8 +31,8 @@ vim.opt.incsearch = true
 vim.opt.hlsearch = true
 
 -- Cursor
-vim.opt.guicursor =
-"n-v-c-i-ci-ve-r-cr-o:block-Cursor/lCursor-blinkwait700-blinkoff400-blinkon250"
+vim.opt.guicursor = "a:blinkwait300-blinkon250-blinkoff250"
+-- "n-v-c-i-ci-ve-r-cr-o:block-Cursor/lCursor-blinkwait700-blinkoff400-blinkon250"
 
 -- Colors
 vim.opt.termguicolors = true

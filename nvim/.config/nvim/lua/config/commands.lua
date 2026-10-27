@@ -7,3 +7,8 @@ vim.api.nvim_create_user_command("FF", function()
     vim.api.nvim_win_set_cursor(0, pos)
     vim.cmd("normal! zz")
 end, {})
+
+--------- aliases ---------
+vim.api.nvim_create_user_command("Diag", function()
+    vim.diagnostic.open_float()
+end, {})

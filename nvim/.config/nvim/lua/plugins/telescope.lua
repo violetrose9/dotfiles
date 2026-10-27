@@ -14,6 +14,7 @@ return {
                 find_files = {
                     -- bottom-up view
                     -- theme = "ivy"
+                    follow = true,
                 }
             },
             extensions = {
